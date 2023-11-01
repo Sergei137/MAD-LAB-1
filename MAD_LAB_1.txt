@@ -1,0 +1,102 @@
+MAD LAB 1 
+
+SYSTEM:
+CPU - Ryzen 7 5800H average speed at 4.2GHz and base speed at 3.2GHz
+RAM - 32GB running at 3200MHz
+OS - Windows 11 version 22H2
+
+INSTALLATION INSTRUCTIONS:
+Include step-by-step instructions for installing the necessary tools and dependencies required for the framework, such as Node.js, and the React Native CLI.
+
+Node.js:
+- Download Node.js LTS version (Long Term Supports) for windows.
+- Install Node.js through Node.js setup wizard.
+
+Android Studio:
+- Download Android Studio .exe file either from the website or the provided one from teams.
+- Click on the .exe file once and wait.
+- Click yes on the windows prompt to "allow app to make changes to the device".
+- In the installation wizard, install Android Studio and Android Virtual Device.
+- Set install location as default `C:\Program Files\Android\Android Studio` and install.
+- Finish and run Android Studio
+- In the Android Studio Setup Wizard, do not import settings, choose to send or not send diagnostics, select standard install type, select UI theme, verify Android SDK installations (I didn't get a choice), accept licenses, click finish to begin installation.
+- Click yes on windows prompt to "allow app to make changes to the device".
+
+
+
+CONFIGURATION STEPS:
+Detail any necessary configuration steps required to set up the framework, such as setting environment variables or configuring project settings.
+
+Configure Android Studio:
+- On Android Studio launch screen, click on SDK Manager under More Actions drop down menu.
+- Confirm that Android SDK Platform 34 is selected under SDK Platforms tab. 
+
+Create ANDROID_HOME environment variable:
+- On windows 11, go to settings, find "Edit the system environment variables".
+- Click on "Environment Variables..." button, add a new environment variable.
+- Set name to: `ANDROID_HOME`.
+- Set value to Android SDK location: `C:\Users\user\AppData\Local\Android\Sdk`.
+- Click OK.
+
+Add platform-tools to Path:
+- Edit path variable.
+- Click "Browse...", find platform-tools under `C:\Users\user\AppData\Local\Android\Sdk`.
+- Select the platform-tools directory and press "OK". 
+
+
+
+PROJECT CREATION:
+Outline the steps involved in creating a new project using the framework, including any necessary setup or configuration.
+
+- Create new folder (AndroidStudioProjects1) outside of the OneDrive directory (C:\Users\user\userAndroidStudioProjects1).
+- Open the folder in Command Prompt
+- Enter `npx react-native@latest init ASTest1`. ASTest1 is the project name.
+- Once "Need to install the following packages: react-native@0.72.6" is displayed, press "y" and enter to proceed.
+- Update npm package manager with" `npm install -g npm`.
+- Open Visual Studio Code, select ASTest1 directory located in AndroidStudioProjects1 directory.
+- OPTIONAL: Change project from TypeScript (.tsx) to JavaScript (.jsx) by renaming App.tsx to App.jsx. Delete any red lines in App.jsx.
+
+
+
+RUNNING THE PROJECT:
+Detail how to run the project in an Android Device Simulator.
+
+- Open Android Studio.
+- Open Virtual Device Manager under More Actions.
+- Click "Create Device".
+- Select a device and click "Next". Pixel 7 in this case.
+- Download system image (R). When done, press "Finish".
+- Click "Next" on R and set name and orientation. Leave the rest as default. Click "Finish".
+- Press the play button to run.
+- Allow adb.exe (connection stuff with a real device)
+
+- Go to Android Studio.
+- Click "Open"
+- Select "android" in the designated project directory (C:\Users\user\userAndroidStudioProjects1\project).
+- Wait for the project to load.
+- Decline/ignore "Project update recommended".
+- Select "Make Project" under "Build" menu and wait for "BUILD SUCCESSFUL" in Build Output.
+- Run the project.
+- Navigate to the project directory in terminal and run `npm run start`. If there are changes to the code, type `r` into the terminal to reload the app. This method is also used to run the project from terminal initially.
+
+
+
+TROUBLESHOOTING:
+Include information on how to troubleshoot common issues that may arise during setup or development, such as debugging and error messages. This may need to be updated in the future.
+
+- If error message "Unable to load script. <error>" is shown after running a project, then run `npm run start` in terminal at the project directory. Then select option `r` from the menu to reload. 
+
+- If error message "No matching variant of project :gradle-plugin was found." by trying to run the project from terminal, fix by going into environment variables, Path, check if there are any additional JDK paths. Then check system variable paths and delete any JDK paths. Add Android Studio JDK path (path \Android\AndroidStudio\jbr\bin) to environment variables by copy/pasting the path. Close and open the terminal and try running. If that fails, restart system and try again.
+
+- React Native Doctor. If the code is runnable and there is a problem with React Native, run `npx react-native doctor` in terminal at the project directory. This will give you a diagnostic. Press `f` from the menu to automatically try and fix any issues. This method is not guaranteed to fix the issue but it is an available tool.
+
+
+
+RESOURCES:
+Provide links to additional resources and documentation that can be used for reference and further learning, such as official documentation, tutorials, and Stack Overflow answers. 
+
+- Node: https://nodejs.org/en/download
+- React: https://reactnative.dev/docs/environment-setup?guide=native&os=linux
+- Android Studio: https://developer.android.com/studio
+- MAD Teams chat resources. 
+
